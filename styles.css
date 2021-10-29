@@ -1,0 +1,842 @@
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('fonts/Pragmatica-Book.eot');
+    src: url('fonts/Pragmatica-Book.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Pragmatica-Book.woff2') format('woff2'),
+    url('fonts/Pragmatica-Book.woff') format('woff'),
+    url('fonts/Pragmatica-Book.ttf') format('truetype'),
+    url('fonts/Pragmatica-Book.svg#Pragmatica-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('fonts/Pragmatica-Bold_1.eot');
+    src: url('fonts/Pragmatica-Bold_1.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Pragmatica-Bold_1.woff2') format('woff2'),
+    url('fonts/Pragmatica-Bold_1.woff') format('woff'),
+    url('fonts/Pragmatica-Bold_1.ttf') format('truetype'),
+    url('fonts/Pragmatica-Bold_1.svg#Pragmatica-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('fonts/Pragmatica-Medium.eot');
+    src: url('fonts/Pragmatica-Medium.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Pragmatica-Medium.woff2') format('woff2'),
+    url('fonts/Pragmatica-Medium.woff') format('woff'),
+    url('fonts/Pragmatica-Medium.ttf') format('truetype'),
+    url('fonts/Pragmatica-Medium.svg#Pragmatica-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('fonts/Pragmatica-Light.eot');
+    src: url('fonts/Pragmatica-Light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Pragmatica-Light.woff2') format('woff2'),
+    url('fonts/Pragmatica-Light.woff') format('woff'),
+    url('fonts/Pragmatica-Light.ttf') format('truetype'),
+    url('fonts/Pragmatica-Light.svg#Pragmatica-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+button,
+button:active,
+button:focus {
+    outline: none;
+}
+* {
+    margin: 0 auto;
+}
+
+/*------------------ Модификаторы --------------------*/
+.spaceAround{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.BeeMob-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.BeeMob-header-desktop-nav{
+    display: none;
+}
+@media(min-width: 1280px) {
+    .BeeMob-header-desktop-nav{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .BeeMob-header-nav{
+        display: none;
+    }
+}
+.BeeMob-header-desktop-logo{
+    margin: 0;
+}
+.BeeMob-header__desktop-menu_box{
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 15px;
+    width: 50%;
+    list-style: none;
+
+}
+.BeeMob-header-desktop-menu_link{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #575756;
+}
+.BeeMob-header-desktop-menu_link:hover{
+    color: #FDC300;
+    text-decoration: underline;
+}
+.BeeMob-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 60px;
+    background-color: #ffffff;
+}
+.BeeMob-header__logo{
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    display: flex;
+
+}
+.BeeMob-header-nav{
+
+}
+#menu__toggle {
+    opacity: 0;
+}
+.hamburger-menu {
+    position: relative;
+}
+.BeeMob-header__menu_btn{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 27px;
+    height: 20px;
+    z-index: 1;
+}
+.BeeMob-header__menu_btn > span,
+.BeeMob-header__menu_btn > span::before,
+.BeeMob-header__menu_btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #575756;
+}
+.BeeMob-header__menu_btn > span::before {
+    content: '';
+    top: -8px;
+}
+.BeeMob-header__menu_btn > span::after {
+    content: '';
+    top: 8px;
+}
+.BeeMob-header__menu_box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    margin: 0;
+    padding: 90px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 1px 0 6px rgba(0, 0, 0, .2);
+}
+/* элементы меню */
+.BeeMob-header-menu_link {
+    display: block;
+    padding: 15px 50px;
+    color: #575756;
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: left;
+}
+.BeeMob-header-menu_link:hover {
+    text-decoration: underline;
+    color: #ffd500;
+}
+#menu__toggle:checked ~ .BeeMob-header__menu_btn > span {
+    transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .BeeMob-header__menu_btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+#menu__toggle:checked ~ .BeeMob-header__menu_btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .BeeMob-header__menu_box {
+    visibility: visible;
+    left: 0;
+}
+.BeeMob-header__menu_btn > span,
+.BeeMob-header__menu_btn > span::before,
+.BeeMob-header__menu_btn > span::after {
+    transition-duration: .25s;
+}
+.BeeMob-header__menu_box {
+    transition-duration: .25s;
+}
+.BeeMob-header-menu_link {
+    transition-duration: .25s;
+}
+.BeeMob-header-section{
+    max-width: 1920px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("pictures/Rectangle 274.png"), url("pictures/sean-pollock-PhYq704ffdA-unsplash 1.png");
+    height: 600px;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 90px;
+    min-width: 375px;
+
+}
+.BeeMob-header-section__h1{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 120%;
+    color: #FFFCFC;
+    margin-bottom: 22px;
+
+}
+.BeeMob-header-section__par1{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    color: #FFFCFC;
+    min-width: 375px;
+    max-width: 752px;
+    margin-bottom: 50px;
+
+}
+.BeeMob-header-section__par2{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 150%;
+    width: 343px;
+    -webkit-text-stroke: 1px #000000;
+}
+/*___________________________________________________Common______________________________________________________*/
+.BeeMob-Content-container{
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.BeeMob-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1920px;
+    background-color: #ffffff;
+
+}
+
+.BeeMob-section__yellow-line{
+    display: flex;
+    width: 100px ;
+    height: 4px;
+    background-color: #ffd500;
+    margin-top: 0;
+    margin-bottom: 13px;
+}
+.BeeMob_section__h1{
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    Line-height: 23px;
+    color: #575756;
+    border-top-width: 4px;
+    border-color: #ffd500;
+    text-align: center;
+}
+
+
+.BeeMob-section__toppar{
+    text-align: center;
+    font-family: 'Pragmatica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #575756;
+    max-width: 749px;
+    line-height: 120%;
+}
+/*<!--___________________________________________________Calculator_______________________________________________________-_-->*/
+.BeeMob-calculator-section__par{
+
+}
+.BeeMob-section-calc__h1{
+    margin-bottom: 13px;
+}
+.BeeMob-section-calc__toppar{
+    margin-bottom: 35px;
+}
+.BeeMob-calculator-section__CheckBoxTitle{
+    text-align: center;
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    color: #575756;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+.BeeMob-calculator-fieldset__container{
+    display: flex;
+    flex-direction: column;
+}
+.BeeMob-calculator-fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 262px;
+    border-style: solid;
+    border-color: #FFD500;
+    padding: 0;
+}
+.BeeMob-calculator-fieldset-bookkeeping{
+margin-bottom: 29px;
+}
+.BeeMob-calculator-fieldset-tax{
+    margin-bottom: 14px;
+}
+.BeeMob-calculator-fieldset-personal{
+margin-bottom: 77px;
+}
+.BeeMob-calculator-fieldset__checkBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.fieldset__checkBox__marginBottom{
+    margin-bottom: 20px;
+}
+.BeeMob-calculator-CustomRadio{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.BeeMob-calculator-CustomRadio+label {
+    position: relative;
+    align-items: center;
+    user-select: none;
+    padding-left: 45px;
+}
+.BeeMob-calculator-CustomRadio+label::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 25px;
+    left: 0;
+    border: 1px solid #2D9CDB;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+
+}
+.BeeMob-calculator-CustomRadio:checked+label::after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    left: 6px;
+    top: 6px;
+    position: absolute;
+    background-color: #2D9CDB;
+
+}
+.BeeMob-calculator-fieldset__label{
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    Line-height: 20px;
+    color: #575756;
+    text-align: left;
+    width: 184px;
+    margin-left: 0;
+}
+.BeeMob-calculator-fieldset__priceTags{
+    font-family: 'Pragmatica', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    color: #575756;
+}
+
+.BeeMob-makeOrderForm{
+    /*min-width: 1536px;*/
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9D9D9C;
+    margin-bottom: 100px;
+}
+.BeeMob-displayRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.totalPrice{
+    width: 30%;
+    height: 300px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    margin-left: 30px;
+}
+.BeeMob-selectedServices-newTotal{
+    background-color: #FFFDF9;
+    padding: 50px;
+}
+.BeeMob-selectedServices{
+    margin-left: 100px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.BeeMob-selectedServices_header{
+    margin-right: 250px;
+    height: 98px;
+    width: 50%;
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #575756;
+    margin-bottom: 0;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #FFD500
+
+}
+.BeeMob-selectedServices_boldText{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 120%;
+    color: #575756;
+}
+
+.BeeMob-selectedServices_item{
+    height: 95px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    flex-direction: row;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #FFD500
+;
+}
+.BeeMob-selectedServices-elem{
+    font-family: 'Pragmatica', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 18px;
+    color: #575756;
+    margin-left: 0px;
+    margin-right: 0;
+}
+.BeeMob-selectedServices-elem-margin110px{
+    margin-left: 110px;
+}
+.fillOutForm{
+    margin-left: 50px;
+    margin-right: 50px;
+    border-top-color: azure;
+    border-bottom: transparent;
+    border-left: transparent;
+    border-right: transparent;
+padding-bottom: 30px;
+}
+.selectedServicesButton{
+    width: 261px;
+    height: 50px;
+    background: #FFD500;
+    border: transparent;
+    margin-top: 15px;
+}
+
+.BeeMob-crossImg{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #9D9D9C;
+    border-width: 2px;
+    margin: 0;
+    right: -6px;
+     top: 0;
+
+}
+
+.BeeMob-crossImg:before, .BeeMob-crossImg:after {
+    position: absolute;
+    left: 9px;
+    content: ' ';
+    height: 18px;
+    width: 2px;
+    background-color: #9D9D9C;
+}
+.BeeMob-crossImg:before {
+    transform: rotate(45deg);
+}
+.BeeMob-crossImg:hover:before {
+    background-color: #EB5757;
+}
+.BeeMob-crossImg:hover:after {
+    background-color: #EB5757;
+}
+.BeeMob-crossImg:after {
+    transform: rotate(-45deg);
+}
+/*.BeeMob-cross:hover {*/
+/*    background-color: #EB5757;*/
+/*}*/
+.BeeMob-crossImg:hover{
+     border-color: #EB5757;
+ }
+/*<!--<_______________________________________________About Us____________________________________________________>-->*/
+.BeeMob_section__h1-about-us{
+    margin-bottom: 38px;
+}
+.BeeMob-AboutUs-section__h2{
+    margin-left: 0;
+    display: flex;
+    align-self: flex-start;
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    Line-height: 26px;
+    color: #FFD500;
+    margin-bottom: 21px;
+
+}
+.BeeMob-AboutUs-section__text{
+    display: flex;
+    flex-direction: column;
+
+}
+.BeeMob-AboutUs-section__par{
+    font-family: 'Pragmatica', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    Line-height: 23px;
+    color: #575756;
+    margin-bottom: 23px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+.BeeMob-AboutUs-section__par5{
+margin-bottom: 21px;
+    margin-left: 0;
+    word-spacing: 3px;
+}
+.AboutUs__image{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 130px;
+    max-width: 752px;
+    min-width: 345px;
+}
+/*_______________________________________________OurServices___________________________________________*/
+
+.BeeMob_section__h1-services{
+    margin-bottom: 13px;
+}
+.BeeMob-section__toppar-services{
+    margin-bottom: 40px;
+}
+.BeeMob-OurServices-List{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 145px;
+}
+
+.BeeMob-OurServices-list__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.BeeMob-OurServices-div-par{
+     display: flex;
+     flex-direction: column;
+    max-width: 488px;
+
+ }
+.BeeMob-OurServices-section__number{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    color: #575756;
+
+}
+.BeeMob-OurServices-section__Boldtext{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 130%;
+    color: #575756;
+    margin-bottom: 14px;
+    margin-left: 10px;
+}
+.BeeMob-OurServices-section__NormalText{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 130%;
+    color: #575756;
+    margin-left: 10px;
+    margin-bottom: 19px;
+}
+.BeeMob-OurServices-list__item2{
+    margin-bottom: 20px;
+}
+.BeeMob-OurServices-list__item3{
+    margin-bottom: 6px;
+}
+.BeeMob-OurServices-list__item4{
+margin-bottom: 16px;
+}
+.BeeMob-OurServices-list__item5{
+    margin-bottom: 27px;
+}
+.BeeMob-OurServices-section__link{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 120%;
+    color: #56CCF2;
+}
+/*_______________________________________________Contacts___________________________________________*/
+.BeeMob_section__h1-contact{
+    margin-bottom: 12px;
+}
+.BeeMob-Contacts-section__par{
+    /*max-width: 621px;*/
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 120%;
+    margin-bottom: 14px;
+}
+.BeeMob-contacts-button {
+    background-color: #ffd500;
+    min-width: 345px;
+    /*max-width: 488px;*/
+    height: 47px;
+    margin-top: 30px;
+    margin-bottom: 38px;
+    border: transparent;
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #575756
+}
+.BeeMob-contacts-button:hover{
+    background-color: #FDC300;
+}
+.BeeMob-contacts-fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /*max-width: 1014px;*/
+    min-width: 345px;
+    border: transparent;
+    padding-right: 0;
+    padding-left: 0;
+}
+.BeeMob-contacts-input{
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*min-width: 345px;*/
+    width: 30%;
+    height: 47px;
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #575756;
+    box-sizing: border-box;
+    margin-top: 15px;
+    color: rgba(19, 39, 67, 0.5);
+}
+/*___________________________________footer_____________________________________*/
+.BeeMob-footer{
+    width: 100%;
+    min-width: 375px;
+    min-height: 139px;
+    /*max-height: 150px;*/
+    background-color: #FDC300;
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+}
+.footer-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 375px;
+
+}
+.BeeMob-footer-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100px;
+    /*margin-left: 0;*/
+}
+.BeeMob-footer-vector{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100px;
+    margin-bottom: 15px;
+
+
+
+}
+.BeeMob-footer-img{
+    display: flex;
+    /*margin-left: 15px;*/
+}
+/*.BeeMob-section__yellow-number{*/
+/*    font-size: 26px;*/
+/*}*/
+.BeeMob-section__par--yellow{
+    color: #FFD500;
+}
+@media (min-width: 376px) {
+    .BeeMob-header-section{
+        background-image: url("Socmed/Group 1176.png");
+    }
+}
+@media (min-width: 700px) {
+    .BeeMob-calculator-forDesktop{
+        display: flex;
+        flex-direction: row;
+
+    }
+    .BeeMob-section-AboutUs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .BeeMob-calculator-fieldset{
+        height: 240px;
+    }
+    .BeeMob-calculator-fieldset__container{
+        padding-left:30px;
+        padding-right: 30px;
+    }
+    .BeeMob-OurServices-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+    .BeeMob-OurServices-List{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+.pragmatica500{
+    font-family: Pragmatica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    color: #575756;
+}
+.margin50{
+    margin-bottom: 50px;
+}
+
+.pictureQuestion{
+    margin-left: 195px;
+}
+
